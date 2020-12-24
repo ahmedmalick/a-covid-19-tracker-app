@@ -9,15 +9,15 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const CountrySelector= ({countryHandler}) => {
-  const [countriesData, setCountriesData] = useState([])
+  const [fetchedData, setFetchedData] = useState([])
   useEffect(() => {
     const fetchAPI = async () => {
-      setCountriesData(await countriesData());
+      setfetchedData(await countriesData());
     }
     fetchAPI();
-  }, [setCountriesData]);
+  }, [setFetchedData]);
 
-  const classes = useStyles();
+  // const classes = useStyles();
 
   return (
     <div>

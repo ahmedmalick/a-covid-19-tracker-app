@@ -13,9 +13,8 @@ class App extends Component() {
   }
 
   async componentDidMount() {
-    const globalData = await globalData()
-    this.setState({ data: globalData })
-
+    const fetcheddata = await globalData()
+    this.setState({ data: fetcheddata })
   }
 
   countryHandler = async (country) => {

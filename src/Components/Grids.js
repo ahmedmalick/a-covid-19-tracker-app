@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import CountUp from 'react-countup';
-import cx from 'classnames';
 
 const useStyles = makeStyles((theme) => ({
   // root: {

@@ -3,13 +3,13 @@ import { dailyData } from '../Api/api';
 import { Bar } from 'react-chartjs-2';
 
 const Charts = ({ data: { confirmed, recovered, deaths }, country }) => {
-  const [dailyData, setDailyData] = useState([])
+  const [fetchedData, setFetchedData] = useState([])
   useEffect(() => {
     const fetchAPI = async () => {
-      setDailyData(await dailyData());
+      setFetchedData(await dailyData());
     }
     fetchAPI();
-  }, [])
+  }, );
 
   const BarChart = (
     <Bar
@@ -27,7 +27,7 @@ const Charts = ({ data: { confirmed, recovered, deaths }, country }) => {
       }}
       options={{
         legend: { display: false },
-        title: { display: true, text: 'Current stats in ${country}' },
+        title: { display: true, text: `Current stats in ${country}` },
       }}
     />
   );
