@@ -12,7 +12,7 @@ const CountrySelector= ({countryHandler}) => {
   const [fetchedData, setFetchedData] = useState([])
   useEffect(() => {
     const fetchAPI = async () => {
-      setfetchedData(await countriesData());
+      setFetchedData(await countriesData());
     }
     fetchAPI();
   }, [setFetchedData]);
