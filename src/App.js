@@ -1,25 +1,38 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import CenteredGrid from './Components/Grids';
+import CountrySelector from './Components/CountrySelector';
+import Charts from './Components/Charts';
+import image from './Images/image.png';
+import { globalData } from './Api/api';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component() {
+  state = {
+    data: {},
+    country: '',
+  }
+
+  async componentDidMount() {
+    const globalData = await globalData()
+    this.setState({ data: globalData })
+
+  }
+
+  countryHandler = async (country) => {
+    const globalData = await globalData(country);
+    this.setState({ data: globalData, country: country })
+  }
+  render() {
+    const { data, country } = this.state;
+    return (
+      <div>
+        <img src={image} alt="COVID-19" />
+        <CenteredGrid data={data} />
+        <CountrySelector countryHandler={this.countryHandler} />
+        <Charts data={data} country={country} />
+      </div>
+    );
+  }
 }
 
 export default App;
