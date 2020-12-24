@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-function CountrySelector() {
+const CountrySelector= ({countryHandler}) => {
   const [countriesData, setCountriesData] = useState([])
   useEffect(() => {
     const fetchAPI = async () => {
@@ -24,7 +24,7 @@ function CountrySelector() {
       <FormControl>
         <NativeSelect defaultValue="" onChange={(e)=> countryHandler(e.target.value)}>
           <option>Global</option>
-          {countriesData.map((country, i) => <option key={i} value={country}>{country}</option>)}
+          {countriesData.map((country, i) =><option key={i} value={country}>{country}</option>)}
         </NativeSelect>
       </FormControl>
     </div>
