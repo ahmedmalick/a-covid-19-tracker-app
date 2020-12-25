@@ -7,19 +7,19 @@ import { globalData } from './Api/api';
 import './App.css';
 
 class App extends Component() {
-  state = {
+  state={
     data: {},
     country: '',
   }
 
   async componentDidMount() {
-    const fetcheddata = await globalData()
-    this.setState({ data: fetcheddata })
+    const fetchedData = await globalData()
+    this.setState({ data: fetchedData })
   }
 
   countryHandler = async (country) => {
-    const globalData = await globalData(country);
-    this.setState({ data: globalData, country: country })
+    const fetchedData = await globalData(country);
+    this.setState({ data: fetchedData, country: country })
   }
   render() {
     const { data, country } = this.state;

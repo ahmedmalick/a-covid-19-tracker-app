@@ -4,15 +4,15 @@ import FormControl from '@material-ui/core/FormControl';
 import NativeSelect from '@material-ui/core/NativeSelect';
 import { countriesData } from '../Api/api';
 
-const useStyles = makeStyles((theme) => ({
+// const useStyles = makeStyles((theme) => ({
 
-}));
+// }));
 
-const CountrySelector= ({countryHandler}) => {
+const CountrySelector = ({countryHandler}) => {
   const [fetchedData, setFetchedData] = useState([])
   useEffect(() => {
     const fetchAPI = async () => {
-      setFetchedData(await countriesData());
+      setFetchedData(await fetchedData());
     }
     fetchAPI();
   }, [setFetchedData]);
