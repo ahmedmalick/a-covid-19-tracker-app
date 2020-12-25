@@ -6,7 +6,7 @@ import image from './Images/image.png';
 import { globalData } from './Api/api';
 import './App.css';
 
-class App extends Component() {
+class App extends Component {
   state={
     data: {},
     country: '',
