@@ -20,7 +20,7 @@ const App = () => {
                 .then(res => res.json())
                 .then(data => setFetchedData(data))
         }
-    }, [country])
+    }, [country]);
 
     const handleCountryChange = (country) => {
         setCountry(country)
