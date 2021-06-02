@@ -1,41 +1,39 @@
-import React from 'react';
-import CenteredGrid from './Components/Grids/Grids';
-import CountrySelector from './Components/CountrySelector/CountrySelector';
-import Chart from './Components/Charts/Charts';
-import { fetchData } from './Api/api';
-import styles from './App.module.css';
-import image from './Images/image.png';
+import { useState, useEffect } from 'react'
+import Cards from './Components/Cards/Cards'
+import CountryPicker from './Components/CountryPicker/CountryPicker'
+import Chart from './Components/Chart/Chart'
+import covidImg from './Assests/covid.png'
+import styles from './App.module.css'
 
-class App extends React.Component {
-  state = {
-    data: {},
-    country: '',
-  }
+const App = () => {
 
-  async componentDidMount() {
-    const data = await fetchData();
+    const [fetchedData, setFetchedData] = useState([]);
+    const [country, setCountry] = useState('');
 
-    this.setState({ data });
-  }
+    useEffect(() => {
+        if (country) {
+            fetch(`https://covid19.mathdro.id/api/countries/${country}`)
+                .then(res => res.json())
+                .then(data => setFetchedData(data))
+        } else {
+            fetch(`https://covid19.mathdro.id/api`)
+                .then(res => res.json())
+                .then(data => setFetchedData(data))
+        }
+    }, [country])
 
-  handleCountryChange = async (country) => {
-    const data = await fetchData(country);
-
-    this.setState({ data, country: country });
-  }
-
-  render() {
-    const { data, country } = this.state;
+    const handleCountryChange = (country) => {
+        setCountry(country)
+    }
 
     return (
-      <div className={styles.container}>
-        <img className={styles.image} src={image} alt="COVID-19" />
-        <CenteredGrid data={data} />
-        <CountrySelector handleCountryChange={this.handleCountryChange} />
-        <Chart data={data} country={country} /> 
-      </div>
-    );
-  }
+        <div className={styles.container}>
+            <img className={styles.img} src={covidImg} alt='Covid-19' />
+            <Cards data={fetchedData} />
+            <CountryPicker handleCountryChange={handleCountryChange} />
+            <Chart country={country} data={fetchedData} />
+        </div>
+    )
 }
 
-export default App;
+export default App

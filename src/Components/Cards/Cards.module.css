@@ -1,0 +1,34 @@
+.infected {
+  margin: 10px !important;
+  padding: 2% !important;
+  border-radius: 30px;
+  border-bottom: 10px solid rgba(0, 0, 255, 0.5);
+}
+
+.recovered {
+  margin: 10px !important;
+  padding: 2% !important;
+  border-radius: 30px;
+  border-bottom: 10px solid rgba(0, 255, 0, 0.5);
+}
+
+.deaths {
+  margin: 10px !important;
+  padding: 2% !important;
+  border-radius: 30px;
+  border-bottom: 10px solid rgba(255, 0, 0, 0.5);
+}
+
+@media only screen and (max-width: 770px) {
+  .infected {
+    margin: 2% 2% !important;
+  }
+
+  .recovered {
+    margin: 2% 2% !important;
+  }
+
+  .deaths {
+    margin: 2% 2% !important;
+  }
+}
