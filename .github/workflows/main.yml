@@ -1,4 +1,4 @@
-name: MyExpenseTrackerApp
+name: MyCovid-19App
 
 on:
   push:
@@ -29,4 +29,4 @@ jobs:
         run: npm install --global surge
       
       - name: Deplloying on surge
-        run: surge ./build a-expense-tracker-app.surge.sh --token ${{ secrets.SURGE_TOKEN }}
+        run: surge ./build a-covid-19-tracker-app.surge.sh --token ${{ secrets.SURGE_TOKEN }}
