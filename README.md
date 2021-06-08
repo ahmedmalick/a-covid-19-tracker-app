@@ -2,7 +2,7 @@
  
 [live Site](http://a-covid-19-tracker-app.surge.sh/)
 
-![Covid-19 App](/src/Assets/covid-19.png)
+![Covid-19 App](/public/covid-19.png)
 
 This is the code repo of Covid-19 App. There I used:
   * [React](https://reactjs.org)
