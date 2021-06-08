@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import Cards from './Components/Cards/Cards'
 import CountryPicker from './Components/CountryPicker/CountryPicker'
 import Chart from './Components/Chart/Chart'
-import covidImg from './Assests/covid.png'
+import covidImg from './Assets/covid.png'
 import styles from './App.module.css'
 
 const App = () => {
